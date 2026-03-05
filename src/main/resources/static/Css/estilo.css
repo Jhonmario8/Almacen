@@ -2,15 +2,19 @@ body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color: #f5f5f5;
 }
+
 *{
     box-sizing: border-box;
-
 }
+
 nav{
     padding: 0;
     margin: 0;
+    background-color: #111;
 }
+
 ul{
     margin: 0;
     margin-bottom: 20px;
@@ -19,50 +23,58 @@ ul{
     gap: 30px;
     align-items: center;
     justify-content: space-evenly;
-
 }
+
 li{
     list-style: none;
-    color: #6b3fe9;
+    color: #e53935;
     font-size: 25px;
     letter-spacing: 2px;
     font-family: sans-serif;
     transition: color .3s, transform .4s;
 }
+
 ul div{
     display: flex;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
 }
+
 li:hover{
-    color: #c88ef3;
+    color: #ff6b00;
     cursor: pointer;
     transform: scale(1.1);
 }
+
 .boton{
-    background-color: #6b3fe9;
+    background-color: #e53935;
     text-align: center;
     color: #fff;
     padding: 10px;
     border-radius: 10px;
     transition: background-color .3s, transform .4s;
 }
+
 .boton:hover{
-    background-color: #6b3fe999;
+    background-color: #ff6b00;
     cursor: pointer;
     color: #fff;
 }
+
 .logo{
     border-radius: 100%;
     width: 100px;
 }
+
 .lupa{
     width: 30px;
 }
+
 .lupa:hover{
     cursor: pointer;
 }
+
 .banner{
     margin: auto;
     display: flex;
@@ -70,21 +82,22 @@ li:hover{
     justify-content: space-between;
     width: 98vw;
     height: 400px;
-    background: linear-gradient(to right,#6b3fe9 ,#c88ef3 , #6b3fe9 50%);
-    mask-image: url(../imagenes/logo\ onix.jpg);
+    background: linear-gradient(to right,#111 ,#e53935 , #111 60%);
     color: #fff;
     font-size: 1.5rem;
     border-radius: 50px;
 }
+
 .logoFondo{
     position: absolute;
     right: 0;
     border-radius: 50%;
     transform: scale(1.5) translatex(140px);
-    opacity: 0.6;
-    filter: blur(1px);
+    opacity: 0.4;
+    filter: blur(2px);
     z-index: 0;
 }
+
 .banner p{
     margin-top: 100px;
     text-align: center;
@@ -95,10 +108,12 @@ li:hover{
     width: 180px;
     transition: background-color .3s;
 }
+
 .banner p:hover{
     cursor: pointer;
-    background-color: #939;
+    background-color: #e53935;
 }
+
 .banner .logo{
     width: 250px;
     height: 250px;
@@ -107,9 +122,11 @@ li:hover{
     margin-right: 50px;
     z-index: 1;
 }
+
 .banner div{
     margin-left: 10px;
 }
+
 .seccion1{
     margin-top: 30px;
     display: flex;
@@ -118,47 +135,56 @@ li:hover{
 
 .seccion1 article{
     text-align: center;
-    color: #6b3fe9;
+    color: #e53935;
     width: 350px;
     height: 450px;
-    border: 1px solid #6b3fe9;
+    border: 1px solid #ccc;
     padding: 10px;
-    box-shadow: -5px 10px 16px #0006;
+    box-shadow: -5px 10px 16px #0003;
     border-radius: 5px;
     transition: transform .3s;
+    background-color: white;
 }
 
 .seccion1 article:hover{
     transform: scale(1.05);
 }
+
 .seccion1 .imagenes{
     width: 300px;
     height: 300px;
     object-fit: contain;
 }
+
 .seccion2{
     margin-top: 60px;
-    color: #6b3fe9;
+    color: #e53935;
     text-align: center;
 }
+
 .seccion2 h3{
     font-size: 2rem;
 }
+
 .seccion2 div{
     display: flex;
     justify-content: space-evenly;
 }
+
 .seccion2 article{
     width: 500px;
     height: auto;
     border-radius: 5px;
     padding: 10px;
-    box-shadow: -5px 10px 16px #0006;
+    box-shadow: -5px 10px 16px #0003;
     transition: transform .3s;
+    background-color: white;
 }
+
 .seccion2 article:hover{
     transform: scale(1.05);
 }
+
 .seccion2 .imagenes{
     width: 100%;
     height: 450px;
@@ -171,50 +197,58 @@ li:hover{
     align-items: center;
     justify-content: space-evenly;
 }
+
 .caja article{
     text-align: center;
     width: 30%;
     height: 300px;
-    border: 1px solid #6b3fe9;
-    box-shadow: -5px 10px 20px #0004;
+    border: 1px solid #ccc;
+    box-shadow: -5px 10px 20px #0002;
     transition: transform .4s;
+    background-color: white;
 }
+
 .caja article:hover{
     transform: scale(1.03);
     cursor: pointer;
 }
+
 .caja h3{
-    color: #6b3fe9;
+    color: #e53935;
 }
+
 .caja .logo{
     width: 150px;
 }
+
 footer{
     padding: 20px;
     margin-top: 30px;
-    background-color: #6b3fe9;
+    background-color: #111;
     color: #fff;
-
 }
+
 .footer-contain{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 300px;
 }
+
 .footer-contain div{
     display: flex;
-
 }
+
 .footer-contain .lupa{
     object-fit: contain;
 }
+
 hr{
     width: 900px;
 }
+
 #terminos{
     text-align: center;
-
 }
 
 .cuadro{
@@ -223,17 +257,144 @@ hr{
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    background-color: #6b3fe9;
+    background-color: #e53935;
 }
 
 .animado{
     width: 300px;
     height: 300px;
-    background-color: #6b3fe9;
+    background-color: #e53935;
     animation: deslizar 1s infinite ease;
 }
 
 @keyframes deslizar{
     0%{ background-position: 0% 50%;}
     100%{background-position: 100% 50%;}
+}
+
+/* Galería */
+
+.galery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.galery > div {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+}
+
+.galery > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.galery .imagenes {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.galery > div:hover .imagenes {
+    transform: scale(1.05);
+}
+
+.galery p {
+    color: #e53935;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.galery .boton {
+    background-color: #e53935;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+    width: auto;
+    display: inline-block;
+}
+
+.galery .boton:hover {
+    background-color: #ff6b00;
+    transform: scale(1.05);
+}
+
+/* Responsivo */
+
+@media (max-width: 768px) {
+    .galery {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .galery .imagenes {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .galery {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .galery > div {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.div_text{
+    display: flex;
+    flex-direction: column;
+}
+
+.div > div{
+    width: 300px;
+    height: 300px;
+}
+
+.div > div > img{
+    width: 350px;
+    height: 350px;
+    box-shadow: 5px 5px 10px 2px #888;
+    border-radius: 12px;
+    padding: 50px;
+}
+
+.div_img{
+    padding-left: 150px;
 }

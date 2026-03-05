@@ -20,6 +20,7 @@ public class Product {
     @NonNull
     private String name;
     @Nullable
+    @Column(length = 700)
     private String description;
     @Nullable
     @Column(length = 500)
