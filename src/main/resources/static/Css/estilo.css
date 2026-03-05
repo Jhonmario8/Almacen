@@ -1,18 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+
 body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     background-color: #f5f5f5;
+    line-height: 1.6;
 }
-
 *{
     box-sizing: border-box;
+    font-family: "Funnel Display", sans-serif;
 }
 
 nav{
     padding: 0;
     margin: 0;
     background-color: #111;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 ul{
@@ -82,7 +86,7 @@ li:hover{
     justify-content: space-between;
     width: 98vw;
     height: 400px;
-    background: linear-gradient(to right,#111 ,#e53935 , #111 60%);
+    background: linear-gradient(120deg ,#111 ,#e53935, #111 );
     color: #fff;
     font-size: 1.5rem;
     border-radius: 50px;
@@ -125,6 +129,7 @@ li:hover{
 
 .banner div{
     margin-left: 10px;
+    padding: 20px;
 }
 
 .seccion1{
@@ -160,6 +165,7 @@ li:hover{
     margin-top: 60px;
     color: #e53935;
     text-align: center;
+    padding: 40px 20px;
 }
 
 .seccion2 h3{
@@ -206,6 +212,11 @@ li:hover{
     box-shadow: -5px 10px 20px #0002;
     transition: transform .4s;
     background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .caja article:hover{
@@ -232,11 +243,13 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 300px;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
 .footer-contain div{
     display: flex;
+    gap: 10px;
 }
 
 .footer-contain .lupa{
@@ -244,7 +257,8 @@ footer{
 }
 
 hr{
-    width: 900px;
+    width: 80%;
+    margin: 20px auto;
 }
 
 #terminos{
@@ -343,58 +357,49 @@ hr{
 /* Responsivo */
 
 @media (max-width: 768px) {
-    .galery {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 15px;
-        padding: 15px;
+    ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
     }
 
-    .galery .imagenes {
-        height: 200px;
+    .banner {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .banner div {
+        margin: 0;
+        text-align: center;
+    }
+
+    .banner .logo {
+        margin: 20px auto;
+    }
+
+    .caja {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .caja article {
+        width: 80%;
     }
 }
 
 @media (max-width: 480px) {
-    .galery {
-        grid-template-columns: 1fr;
-        padding: 10px;
+    .banner {
+        width: 100vw;
+        border-radius: 0;
     }
 
-    .galery > div {
-        max-width: 350px;
-        margin: 0 auto;
+    .seccion2 div {
+        flex-direction: column;
+        align-items: center;
     }
-}
 
-a{
-    text-decoration: none;
-    color: inherit;
-}
-
-.div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.div_text{
-    display: flex;
-    flex-direction: column;
-}
-
-.div > div{
-    width: 300px;
-    height: 300px;
-}
-
-.div > div > img{
-    width: 350px;
-    height: 350px;
-    box-shadow: 5px 5px 10px 2px #888;
-    border-radius: 12px;
-    padding: 50px;
-}
-
-.div_img{
-    padding-left: 150px;
+    .seccion2 article {
+        width: 90%;
+    }
 }

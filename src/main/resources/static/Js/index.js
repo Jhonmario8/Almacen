@@ -15,9 +15,15 @@ async function getData(){
             let art= document.createElement("article")
 
             art.innerHTML=`<div><img src="${product.image}" class="imagenes"></div>
-            <p >${product.name} </p>
-            <p class="boton">Ir</p>`
-
+            <p >${product.name} </p>`
+            const p = document.createElement("p")
+            p.className="boton"
+            p.textContent= "Ver Producto"
+            p.addEventListener("click",() =>{
+                localStorage.setItem("productId",product.id)
+                window.location.href = "../Html/unique.html"
+            })
+            art.appendChild(p)
             prods.appendChild(art)
         }
     }catch (e){
