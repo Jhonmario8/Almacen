@@ -1,8 +1,10 @@
 package com.example.onix.models.services;
 
+import com.example.onix.models.dto.CommentDto;
 import com.example.onix.models.dto.ProductDto;
 import com.example.onix.models.entities.Product;
 import com.example.onix.models.repositories.ProductRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,19 +29,25 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void updateProduct(ProductDto product) {
-        Optional<Product> existingProductOpt = productoRepository.findById(product.getId());
-        if (existingProductOpt.isEmpty()) {
-            throw new RuntimeException("Producto no encontrado con id: " + product.getId());
-        }
-        Product existingProduct = existingProductOpt.get();
+    @Transactional
+    public void updateProduct(Long id, ProductDto product) {
+        Product existingProduct = productoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado con id: " + id));
         existingProduct.setName(product.getName());
         existingProduct.setDescription(product.getDescription());
         existingProduct.setImage(product.getImage());
         existingProduct.setPrice(product.getPrice());
-        productoRepository.save(existingProduct);
-    }
 
+    }
+    @Override
+    @Transactional
+    public void updateComment(Long id, String comment){
+        Product existingProduct = productoRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Producto no encontrado con id: "+ id));
+        if (comment!= null && !comment.trim().isEmpty()) {
+            existingProduct.getComments().add(comment);
+        }
+    }
     @Override
     public Product getProductById(Long id) {
         return productoRepository.findById(id)

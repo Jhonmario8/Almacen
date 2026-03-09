@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -25,6 +26,9 @@ public class Product {
     @Nullable
     @Column(length = 500)
     private String image;
+    @Nullable
+    @ElementCollection
+    private List<String> comments ;
     @NonNull
     private Double price;
     @ManyToMany(mappedBy = "products")

@@ -1,6 +1,6 @@
 async function getData(){
     try{
-        let res= await fetch("http://localhost:8080/products/findAll")
+        let res= await fetch("http://localhost:8080/products/All")
         if (!res.ok){
             throw new Error("Error al obtener los productos")
         }
