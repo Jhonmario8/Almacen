@@ -19,6 +19,14 @@ public class UserDto {
     private Set<Role> roles = new HashSet<>();
     private Set<Product> products = new HashSet<>();
 
+    public UserDto(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
+    public UserDto() {
+
+    }
 
     public UserDto(Long id, String name, String email, String password) {
         this.id = id;

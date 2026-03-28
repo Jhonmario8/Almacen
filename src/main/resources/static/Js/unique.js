@@ -17,7 +17,6 @@ async function getData() {
         productName.textContent = product.name
         description.textContent = product.description
         price.textContent= `$${product.price} `
-        let x=0;
         product.comments.forEach(comment =>{
             comments.innerHTML +=`${comment} <br><br><br>`
         })

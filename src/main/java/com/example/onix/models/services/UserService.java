@@ -36,6 +36,22 @@ public class UserService implements IUserService{
             existingUser.setPassword(user.getPassword());
             userRepository.save(existingUser);
     }
+    @Override
+    public UserDto login(UserDto userDto){
+        boolean exists = userRepository.existsUserByNameAndPassword(userDto.getName(),
+                userDto.getPassword());
+
+        if (!exists){
+            throw new RuntimeException("Credenciales  incorrectas");
+        }
+        return userRepository.findDtoByName(userDto.getName()).orElseThrow(()-> new RuntimeException("Usuario no encontrado"));
+
+    }
+
+    @Override
+    public Boolean existUserByEmail(String email){
+        return userRepository.existsUserByEmail(email);
+    }
 
     @Override
     public User getUserById(Long id) {
