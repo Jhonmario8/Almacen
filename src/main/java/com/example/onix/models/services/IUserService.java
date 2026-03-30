@@ -8,10 +8,10 @@ import java.util.Optional;
 
 public interface IUserService {
     List<UserDto> getAllUsers();
-    void saveUser(User user);
-    void updateUser(UserDto user);
+    UserDto saveUser(User user);
+    UserDto updateUser(UserDto user);
     Boolean existUserByEmail(String email);
     UserDto login(UserDto userDto);
-    User getUserById(Long id);
+    UserDto getUserById(Long id);
     void deleteUserById(Long id);
 }

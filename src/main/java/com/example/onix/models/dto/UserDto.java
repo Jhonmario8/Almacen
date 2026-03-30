@@ -3,35 +3,26 @@ package com.example.onix.models.dto;
 import com.example.onix.models.entities.Product;
 import com.example.onix.models.entities.Role;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 public class UserDto {
 
     private Long id;
+    @NotBlank(message = "El nombre es obligatorio")
     private String name;
+    @Email(message = "Formato invalido")
     private String email;
+    @Size(min=8, message = "Muy corta")
     private String password;
 
-    private Set<Role> roles = new HashSet<>();
-    private Set<Product> products = new HashSet<>();
 
-    public UserDto(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
-
-    public UserDto() {
-
-    }
-
-    public UserDto(Long id, String name, String email, String password) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
 }
