@@ -1,4 +1,4 @@
-package com.example.onix.models.repositories;
+package com.example.onix.repositories;
 
 import com.example.onix.models.dto.UserDto;
 import com.example.onix.models.entities.User;

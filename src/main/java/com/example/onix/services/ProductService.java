@@ -1,18 +1,15 @@
-package com.example.onix.models.services;
+package com.example.onix.services;
 
 import com.example.onix.exceptions.NotFoundException;
 import com.example.onix.mappers.ProductMapper;
-import com.example.onix.models.dto.CommentDto;
 import com.example.onix.models.dto.ProductDto;
 import com.example.onix.models.entities.Product;
-import com.example.onix.models.repositories.ProductRepository;
+import com.example.onix.repositories.ProductRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package com.example.onix.models.services;
+package com.example.onix.services;
 
 import com.example.onix.models.dto.CommentDto;
 import com.example.onix.models.dto.ProductDto;

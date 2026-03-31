@@ -1,7 +1,7 @@
-package com.example.onix.models.services;
+package com.example.onix.services;
 
 import com.example.onix.models.entities.Role;
-import com.example.onix.models.repositories.RoleRepository;
+import com.example.onix.repositories.RoleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

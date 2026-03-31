@@ -1,4 +1,4 @@
-package com.example.onix.models.services;
+package com.example.onix.services;
 
 import com.example.onix.exceptions.ConflictException;
 import com.example.onix.exceptions.InvalidCredentialsException;
@@ -6,8 +6,9 @@ import com.example.onix.exceptions.NotFoundException;
 import com.example.onix.mappers.UserMapper;
 import com.example.onix.models.dto.UserDto;
 import com.example.onix.models.entities.User;
-import com.example.onix.models.repositories.UserRepository;
+import com.example.onix.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public class UserService implements IUserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
+    private final AuthService authService;
 
     @Override
     public List<UserDto> getAllUsers() {
@@ -30,12 +33,12 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserDto saveUser(User user) {
-
+    public UserDto saveUser(UserDto dto) {
+        User user = userMapper.toEntity(dto);
         if (userRepository.existsUserByEmail(user.getEmail())) {
             throw new ConflictException("El email ya está registrado");
         }
-
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userMapper.toDto(userRepository.save(user));
     }
 
@@ -55,14 +58,12 @@ public class UserService implements IUserService {
 
     @Override
     public UserDto login(UserDto userDto) {
-        boolean exists = userRepository.existsUserByNameAndPassword(userDto.getName(),
-                userDto.getPassword());
+       authService.login(userDto.getName(),userDto.getPassword());
 
-        if (!exists) {
-            throw new InvalidCredentialsException("Credenciales  incorrectas");
-        }
-        User user = userRepository.findByName(userDto.getName()).orElseThrow(() -> new NotFoundException("Usuario no encontrado"));
-        return userMapper.toDto(user);
+       User user = userRepository.findByName(userDto.getName())
+               .orElseThrow(()-> new NotFoundException("Usuario no encontrado"));
+       return userMapper.toDto(user);
+
     }
 
 
