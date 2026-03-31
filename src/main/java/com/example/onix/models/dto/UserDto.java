@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class UserDto {
 
-    private Long id;
+
     @NotBlank(message = "El nombre es obligatorio")
     private String name;
     @Email(message = "Formato invalido")

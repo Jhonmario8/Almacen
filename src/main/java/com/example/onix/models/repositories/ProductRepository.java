@@ -10,8 +10,7 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
-    @Query("SELECT new com.example.onix.models.dto.ProductDto(p.id, p.name, p.description,p.image, p.price) FROM Product p")
-    List<ProductDto> findAllDto();
+
 
 
 

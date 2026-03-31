@@ -8,10 +8,10 @@ import java.util.List;
 
 public interface IProductService {
     List<ProductDto> getAllProducts();
-    void saveProduct(Product product);
-    void updateProduct(Long id, ProductDto product);
+    ProductDto saveProduct(Product product);
+    ProductDto updateProduct(Long id, ProductDto product);
     void updateComment(Long id, String comment);
-    Product getProductById(Long id);
+    ProductDto getProductById(Long id);
     void deleteProductById(Long id);
 
 }

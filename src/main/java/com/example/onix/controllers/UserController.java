@@ -21,9 +21,8 @@ public class UserController {
     private final UserMapper userMapper;
 
     @GetMapping
-    public ResponseEntity<?> findAll() {
-        List<UserDto> users = userService.getAllUsers();
-        return ResponseEntity.ok(users);
+    public List<UserDto> findAll() {
+        return userService.getAllUsers();
     }
 
     @PostMapping
@@ -33,8 +32,8 @@ public class UserController {
     }
 
     @PutMapping
-    public ResponseEntity<?> update(@RequestBody UserDto user) {
-        UserDto updateUser =  userService.updateUser(user);
+    public ResponseEntity<?> update(@PathVariable long id, @RequestBody UserDto user) {
+        UserDto updateUser =  userService.updateUser(id,user);
         return ResponseEntity.ok(updateUser);
     }
 
@@ -46,9 +45,8 @@ public class UserController {
     }
 
     @GetMapping("/findById/{id}")
-    public ResponseEntity<?>  findById(@PathVariable Long id) {
-        UserDto user = userService.getUserById(id);
-        return ResponseEntity.ok(user);
+    public UserDto findById(@PathVariable Long id) {
+        return userService.getUserById(id);
     }
 
     @DeleteMapping("/deleteById/{id}")

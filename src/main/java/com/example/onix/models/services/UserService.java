@@ -40,10 +40,10 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserDto updateUser(UserDto user) {
-        Optional<User> existingUserOpt = userRepository.findById(user.getId());
+    public UserDto updateUser(Long id,UserDto user) {
+        Optional<User> existingUserOpt = userRepository.findById(id);
         if (existingUserOpt.isEmpty()) {
-            throw new NotFoundException("Usuario no encontrado con id: " + user.getId());
+            throw new NotFoundException("Usuario no encontrado con id: " + id);
         }
         User existingUser = existingUserOpt.get();
         existingUser.setName(user.getName());
@@ -65,14 +65,6 @@ public class UserService implements IUserService {
         return userMapper.toDto(user);
     }
 
-    @Override
-    public Boolean existUserByEmail(String email) {
-        boolean exists = userRepository.existsUserByEmail(email);
-        if (exists) {
-            throw new ConflictException("El email ingresado ya esta registrado");
-        }
-        return false;
-    }
 
     @Override
     public UserDto getUserById(Long id) {
