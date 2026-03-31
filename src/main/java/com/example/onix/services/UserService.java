@@ -58,12 +58,8 @@ public class UserService implements IUserService {
 
     @Override
     public UserDto login(UserDto userDto) {
-       authService.login(userDto.getName(),userDto.getPassword());
-
-       User user = userRepository.findByName(userDto.getName())
-               .orElseThrow(()-> new NotFoundException("Usuario no encontrado"));
-       return userMapper.toDto(user);
-
+        User user = authService.login(userDto.getName(),userDto.getPassword());
+        return userMapper.toDto(user);
     }
 
 

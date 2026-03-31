@@ -28,8 +28,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public ProductDto saveProduct(Product product) {
-       return productMapper.toDto(productoRepository.save(product));
+    public ProductDto saveProduct(ProductDto product) {
+       return productMapper.toDto(productoRepository.save(productMapper.toEntity(product)));
     }
 
     @Override

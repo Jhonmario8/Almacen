@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class AuthService {
+
     private final AuthenticationManager authenticationManager;
 
     public User login(String name, String password){
         try {
-
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(name, password)
             );

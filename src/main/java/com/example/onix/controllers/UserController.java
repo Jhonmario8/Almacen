@@ -34,7 +34,7 @@ public class UserController {
        return ResponseEntity.status(HttpStatus.CREATED).body(saveUser);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable long id, @RequestBody UserDto user) {
         UserDto updateUser =  userService.updateUser(id,user);
         return ResponseEntity.ok(updateUser);
@@ -47,12 +47,12 @@ public class UserController {
         return ResponseEntity.ok(Map.of("message", "Login Exitoso"));
     }
 
-    @GetMapping("/findById/{id}")
+    @GetMapping("/{id}")
     public UserDto findById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
-    @DeleteMapping("/deleteById/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         userService.deleteUserById(id);
         return ResponseEntity.noContent().build();

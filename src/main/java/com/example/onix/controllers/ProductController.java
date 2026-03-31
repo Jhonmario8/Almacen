@@ -20,13 +20,13 @@ public class ProductController {
 
     private final IProductService productService;
 
-    @GetMapping("/All")
+    @GetMapping("")
     public List<ProductDto> findAllProducts() {
         return productService.getAllProducts();
     }
 
     @PostMapping
-    public ResponseEntity<?> addProduct(@Valid @RequestBody Product product) {
+    public ResponseEntity<?> addProduct(@Valid @RequestBody ProductDto product) {
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.saveProduct(product));
     }
 
@@ -39,11 +39,11 @@ public class ProductController {
         productService.updateComment(id, dto.getComment());
         return ResponseEntity.noContent().build();
      }
-    @GetMapping("/findById/{id}")
+    @GetMapping("/{id}")
     public ProductDto findProductById(@PathVariable Long id) {
         return productService.getProductById(id);
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
         productService.deleteProductById(id);
         return ResponseEntity.noContent().build();
