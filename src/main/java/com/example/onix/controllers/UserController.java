@@ -2,8 +2,6 @@ package com.example.onix.controllers;
 
 import com.example.onix.mappers.UserMapper;
 import com.example.onix.models.dto.UserDto;
-import com.example.onix.models.entities.User;
-import com.example.onix.services.AuthService;
 import com.example.onix.services.IUserService;
 import jakarta.validation.Valid;
 import lombok.Data;

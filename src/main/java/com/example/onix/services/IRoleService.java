@@ -1,9 +1,7 @@
 package com.example.onix.services;
 
 import com.example.onix.models.entities.Role;
-
 import java.util.List;
-import java.util.Optional;
 
 public interface IRoleService {
     List<Role> getAllRoles();

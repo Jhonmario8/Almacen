@@ -2,7 +2,6 @@ package com.example.onix.controllers;
 
 import com.example.onix.models.dto.CommentDto;
 import com.example.onix.models.dto.ProductDto;
-import com.example.onix.models.entities.Product;
 import com.example.onix.services.IProductService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

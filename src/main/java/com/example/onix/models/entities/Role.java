@@ -3,7 +3,7 @@ package com.example.onix.models.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
+
 
 @Entity
 @Data

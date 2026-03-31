@@ -1,7 +1,7 @@
 package com.example.onix.services;
 
 import com.example.onix.exceptions.ConflictException;
-import com.example.onix.exceptions.InvalidCredentialsException;
+
 import com.example.onix.exceptions.NotFoundException;
 import com.example.onix.mappers.UserMapper;
 import com.example.onix.models.dto.UserDto;
@@ -10,7 +10,6 @@ import com.example.onix.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
