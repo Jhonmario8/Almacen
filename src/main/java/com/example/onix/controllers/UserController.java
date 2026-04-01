@@ -1,6 +1,8 @@
 package com.example.onix.controllers;
 
+import com.example.onix.exceptions.UnauthorizedException;
 import com.example.onix.mappers.UserMapper;
+import com.example.onix.models.dto.LoginResponse;
 import com.example.onix.models.dto.UserDto;
 import com.example.onix.services.IUserService;
 import jakarta.validation.Valid;
@@ -41,8 +43,13 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserDto userDto) {
-        UserDto user = userService.login(userDto);
-        return ResponseEntity.ok(Map.of("message", "Login Exitoso"));
+            LoginResponse response = userService.login(userDto);
+            return ResponseEntity.ok(Map.of(
+                    "toke", response.getToken(),
+                    "user", response.getUser(),
+                    "message", "Login Exitoso"
+            ));
+
     }
 
     @GetMapping("/{id}")

@@ -4,9 +4,9 @@ package com.example.onix.exceptions;
 import org.springframework.http.HttpStatus;
 
 
-public class InvalidCredentialsException extends BaseApplicationException{
+public class UnauthorizedException extends BaseApplicationException{
 
-    public InvalidCredentialsException(String message){
+    public UnauthorizedException(String message){
         super(message);
     }
 

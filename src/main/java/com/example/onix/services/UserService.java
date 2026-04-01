@@ -3,11 +3,16 @@ package com.example.onix.services;
 import com.example.onix.exceptions.ConflictException;
 
 import com.example.onix.exceptions.NotFoundException;
+import com.example.onix.exceptions.UnauthorizedException;
 import com.example.onix.mappers.UserMapper;
+import com.example.onix.models.dto.LoginResponse;
 import com.example.onix.models.dto.UserDto;
+import com.example.onix.models.entities.CustomUserDetails;
 import com.example.onix.models.entities.User;
 import com.example.onix.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -56,9 +61,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserDto login(UserDto userDto) {
-        User user = authService.login(userDto.getName(),userDto.getPassword());
-        return userMapper.toDto(user);
+    public LoginResponse login(UserDto userDto) {
+        String token = authService.login(userDto.getName(), userDto.getPassword());
+
+        User user = userRepository.findByName(userDto.getName())
+                .orElseThrow(()-> new NotFoundException("Usuario no encontrado"));
+
+        return new LoginResponse(token,userMapper.toDto(user));
     }
 
 
@@ -77,4 +86,16 @@ public class UserService implements IUserService {
         userRepository.deleteById(id);
     }
 
+    @Override
+    public UserDto getCurrentUser(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        if (auth==null || !auth.isAuthenticated()){
+            throw new UnauthorizedException("Usuario no autenticado");
+        }
+
+        CustomUserDetails userDetails = (CustomUserDetails) auth.getPrincipal();
+
+        return userMapper.toDto(userDetails.getUser());
+    }
 }

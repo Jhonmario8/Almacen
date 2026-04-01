@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 public class UserDto {
 
 
-    @NotBlank(message = "El nombre es obligatorio")
+    @NotBlank(message = "{name.cannot_be_blank}")
     private String name;
-    @Email(message = "Formato invalido")
+    @Email(message = "{user.email.should_be_valid}")
     private String email;
-    @Size(min=8, message = "Muy corta")
+    @NotBlank(message = "{user.password.cannot_be_blank}")
     private String password;
 
 

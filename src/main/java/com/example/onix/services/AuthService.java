@@ -1,8 +1,7 @@
 package com.example.onix.services;
 
-import com.example.onix.exceptions.InvalidCredentialsException;
+import com.example.onix.exceptions.UnauthorizedException;
 import com.example.onix.models.entities.CustomUserDetails;
-import com.example.onix.models.entities.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -15,8 +14,9 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
 
-    public User login(String name, String password){
+    public String login(String name, String password){
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(name, password)
@@ -24,9 +24,10 @@ public class AuthService {
 
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
 
-            return userDetails.getUser();
+            return jwtService.generateToken(userDetails.getUsername());
+
         }catch (BadCredentialsException ex){
-            throw new InvalidCredentialsException("Credenciales Invalidas");
+            throw new UnauthorizedException("Credenciales Invalidas");
         }
     }
 }

@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 public class ProductDto {
 
 
-    @NotBlank(message = "El nombre no puede estar vacio")
+    @NotBlank(message = "{name.cannot_be_blank}")
     private String name;
     private String description;
     private String image;
     private String comment;
-    @NotBlank(message = "No puede estar vacio")
+    @NotBlank(message = "{product.price.cannot_be_blank}")
     private Double price;
 
 
